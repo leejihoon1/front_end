@@ -12,5 +12,5 @@ git push origin master
 --
 
 SCM에서 
-파일옆에 U : unstaging -> + 버튼 클릭 -> A : add, staging -> 메시지입력 ctrl + enter는 커밋 : MalGun
+파일옆에 U : unstaging -> + 버튼 클릭 -> A : add, staging -> 메시지입력 ctrl + enter는 커밋 : M
 
