@@ -10,3 +10,7 @@ git remote add origin https://github.com/leejihoon1/front_end.git
 git push origin master
 * 원격 저장소 이름 front_end로 만드세요 *
 --
+
+SCM에서 
+파일옆에 U : unstaging -> + 버튼 클릭 -> A : add, staging -> 메시지입력 ctrl + enter는 커밋 : MalGun
+
