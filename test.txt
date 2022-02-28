@@ -13,4 +13,5 @@ git push origin master
 
 SCM에서 
 파일옆에 U : unstaging -> + 버튼 클릭 -> A : add, staging -> 메시지입력 ctrl + enter는 커밋 : M
-
+        -> ... 메뉴에서 push -> remote 저장소 설정 안되어 있으면 -> 명령팔레트에 표시 -> url입력,
+        -> 이름 origin 입력 -> 터미널에서 git remote -v 확인 -> master브랜치 확인 -> push 
