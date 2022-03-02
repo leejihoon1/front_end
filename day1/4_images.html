@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이미지의 크기 확인 합시다. 파일탐색기에서 마우스 올리면 정보가 보입니다.
+         사진크기   460 X 460(단위 : 픽셀), 크기 11KB(용량)
+         디스플레이 모니터의 해상도 : 1920 X 1080(픽셀)
+         이미지 표시 태그 : img, 이미지 파일지정 속성 : src (url 또는 상대경로 파일로 지정)
+         --> 
+    <img src="../images/GKSN3611.jpeg"> 
+       <!--이미지의 크기 설정 방법 1) width, height 속성으로 합니다.(픽셀 또는 백분율)
+        alt 속성은 여러가지 원인의 오류로 이미지 안될 때 표시 될 텍스트 -->
+    <img src="../images/GKSN3611.jpeg" alt="GKSN3611" width="225px"> <!--가로세로 비율유지-->
+    <img src="../images/GKSN3611.jpeg" alt="GKSN3611" width="225px" height="300px">
+    
+    <img src="../images/GKSN3611.jpeg" alt="GKSN3611" width="50%"> <!--브라우저 윈도우 크기의 50%-->
+    <hr>
+    <!-- a태그안에 img 태그 -->
+    아래를 클릭해보세요. ↓ <br> <!--마우스 올리면 마우스 포인터가 변경되요.-->
+    <a href="http://www.spiderman.com" target="_blank"><img src="../images/GKSN3611.JPEG"></a>
+    <hr>
+    <!-- 이미지의 크기 설정방법2) style 속성으로 합니다.style속성에는 여러가지 디자인요소의 설정값을 모두 줄 수 있습니다.(;로 구분) -->
+    <img src="../images/이슬이.JPEG"style="width: 30%;">
+    <img src="../images/이슬이.JPEG"style="width: 200px;height:130px;">
+
+   
+
+
+</body>
+</html>

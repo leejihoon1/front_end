@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day1_하이퍼링크</title>
+</head>
+<body>
+    <!-- a(anchor)태그 : 하이퍼링크 기능 -->
+    <!-- href 속성  :이동할 웹사이트 (웹문서)의 url 주소가 꼭 있어야 동작합니다. -->
+    구글로 이동하기 <a href="https://www.google.com">Google</a> <br>
+    네이버로 이동하기 : <a href="https://www.naver.com">NAVER</a><br>
+    잘못된 주소 테스트 : <a href="https://www.navr">NOT FOUND</a><br>
+    
+    <!-- a태그는 inline 요소이므로 br태그로 줄바꿈 했습니다. -->
+    지정된 파일로 이동하기 : <a href="1_첫번째 컨텐츠.html">첫번째 예제</a><br>
+    href 지정된 url 없을때 : <a href="#">링크 없음.</a><br>
+    <!-- 연습 : 1_first.html로 이동하기 해보세요. -->
+    연습 : <a href="http://127.0.0.1:5500/1_first.html">상위폴더 1_first.html로 이동하기</a><br>
+    연습 : <a href="../1_first.html">상위폴더 1_first.html로 이동하기</a> <br>
+    연습 : <a href="test/test.html">하위 폴더 test.html로 이동하기</a> <br>
+    연습 : <a href="./test/test.html">하위 폴더 test.html로 이동하기</a> <br>
+    연습 : <a href="test/test2.html">없는 파일로 지정된 경우</a><br>
+    <!--상대 경로 기호를 사용할 수 있습니다. //  ../상위 폴더 , ./현재폴더, 폴더구분기호 /  -->
+    w3schools예제 : <a href="3_w3schools예제.html" target="_blank">bookmark 예제로 이동하기</a>
+</body>
+</html>
