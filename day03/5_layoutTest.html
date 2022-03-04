@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="4_layout.css">
+</head>
+<body>
+    <h2>position: static;</h2>
+    <p>An element with position: static; 
+       특별한 방식 없이 페이지 내용의 흐름에 따라 배치된다. 
+    </p>
+    
+    <div class="static">  <!-- division(분할) : block 요소로 영역이 만들어집니다. -->
+      position:static;
+    </div>
+    <h2>position: relative;</h2>
+    <p>An element with position: relative; 
+       x좌표(left 또는 right), y좌표(top 또는 bottom)으로 위치를 지정합니다. 
+    </p>
+    <div class="relative">
+     position:relative;  and  left:30px;   (right:30px; 로 변경해서도 확인하세요.)
+    </div>
+    <h2>position: fixed;</h2>
+    <p>An element with position: fixed; 
+       페이지 내용이 많아서  스크롤되어도 항상 같은 위치로 표시함.
+    </p>
+    <div class="fixed">
+        position:fixed;  and bottom:0 , right:0
+    </div>
+    <h2>position: absolute;</h2>
+    <p>An element with position: absolute; 
+       가장 가까운 부모 태그영역을 기준으로 배치함.
+    </p>
+    <div class="relative2">부모태그요소(영역)입니다.
+        <!--  -->
+        <div class="absolute">자식영역 position: absolute;</div>
+    </div>    
+
+    <h2>position: sticky;</h2>
+    <p>An element with position: sticky; 
+       사용자의 스크롤 위치를 기준으로 배치합니다.
+    </p>
+    <div class="sticky">I am sticky!</div>  <!-- 스크롤 되기 전에는 페이지 내용의 흐름에 따라 위치가 결정 -->
+
+    <div style="padding-bottom:2000px"><!-- 화면이 스크롤되도록 내부여백 설정함.-->
+  <p>화면이 스크롤 되어로 "I am sticky!" 블록은 항상 같은 자리 입니다.</p>
+  <p>Scroll back up to remove the stickyness.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
+
+</body>
+</html> 

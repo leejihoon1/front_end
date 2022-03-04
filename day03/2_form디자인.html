@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day3</title>
+    <!-- font awesome 이라는 자바스크립트 라이브러리 활용하여 아이콘 사용을 할 수 있습니다. 
+        아이콘을 이미지가 아닌 글꼴 처럼 다룰 수 있습니다.-->
+    <script src="https://kit.fontawesome.com/2453cb43cb.js" crossorigin="anonymous"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+        *{  /* 모든 요소 */
+            font-family: 'Gamja Flower', cursive;
+        }
+     
         table{
-            border-top: 1px solid gray;
+            border-top: 3px solid gray;
             border-bottom: 1px solid gray;
         }
+     
         td{
             padding:10px;
-            border: 1px dashed gray; /* 완성하면 지우세요. 가이드선입니다.*/
+            /* border: 1px dashed gray; 완성하면 지우세요. 가이드선입니다. */
+            border-bottom: 2px solid #ccc;
         }
         input,select{
             padding:6px;
@@ -34,11 +44,26 @@
            text-align: center;
            color: white;
         }
-
+        button{
+            padding : 7px 15px;
+            margin: 7px ;
+            background-color: rgb(194, 14 ,104);
+            border: none;
+            color: white;
+            font-size: 1.1;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* 선택자 : 마우스가 놓여질 때 변경될 css */
+        button:hover{
+            background-color: rgb(75, 2, 39);
+        }
     </style>
+
 </head>
 <body>
-    <div style="width:70%;margin:auto;"> <!--table을 포함하는 박스-->
+<div style="width:70%;margin:auto;"> <!--table을 포함하는 박스-->
+<h3 style="text-align: center;;">회원등록<i class="fa-solid fa-skull-crossbones" style="color: violet;font-size: 1.5em;"></i/h3>
     <form action="">    
         <table style="width:100%;">
             <tr >    <!--부모태그 div 너비의 100%-->
@@ -91,11 +116,11 @@
                     <label for="hobby4">달리기</label>
                 </td>
                 <tr>
-                    <td colspan="2"> 
-                        <input type="submit" value="가입하기">
-                        <button type="submit">가입하기2</button>
-                        <input type="reset" value="다시쓰기"> 
-                        <button type="reset">다시쓰기2</button>
+                    <td colspan="2" style="text-align : center;">  <!--이 td의 내용은 가운데 정렬합니다.-->
+                        <!-- <input type="submit" value="가입하기"> -->
+                        <button type="submit">가입하기</button>
+                        <!-- <input type="reset" value="다시쓰기">  -->  <!--입력요소의 내용이 초기화 됩니다.-->
+                        <button type="reset">다시쓰기</button>
                     </td>
                 </tr>
 
