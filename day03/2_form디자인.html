@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day3</title>
+    <style>
+        table{
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+        }
+        td{
+            padding:10px;
+            border: 1px dashed gray; /* 완성하면 지우세요. 가이드선입니다.*/
+        }
+        input,select{
+            padding:6px;
+            border-radius: 4px;
+            border:2px solid #ccc;
+        }
+        input[type=text],input[type=password],input[type=email]{
+            width: 70%;  /* 부모 태그 td너비의 70% */
+        }
+        intput[type=number]{
+            width:20%;
+        }
+        label.title{
+           display: inline-block; /* label 태그에는 너비가 적용안됩니다.(block요소가 아님) */
+           padding: 10px;
+           width: 70%; 
+           background-color: #c69;
+           border-radius: 4px;
+           text-align: center;
+           color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="width:70%;margin:auto;"> <!--table을 포함하는 박스-->
+    <form action="">    
+        <table style="width:100%;">
+            <tr >    <!--부모태그 div 너비의 100%-->
+                <td><label for="name" class="title">이름</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr> 
+                <td><label for="password" class="title">패스워드</label></td>
+                <td><input type="password" id="password" name="password"></td>
+            </tr>
+            <tr>
+                <td><label for="email" class="title">이메일</label></td>
+                <td><input type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label for="age" class="title">나이</label></td>
+                <td><input type="number" value="30" min="20" max="40" id="age" name="age"></td>
+            </tr>
+            <tr>
+                <td><label for="addr" class="title">주소</label></td>
+                <td>
+                    <select name="addr" id="addr">
+                        <option value="서울">서울</option>
+                        <option value="인천">인천</option>
+                        <option value="대전" selected="selected">대전</option>
+                        <option value="광주">광주</option>
+                        <option value="부산">부산</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for=""  class="title">성별</label></td>
+                <td>
+                    <input type="radio" name="gender" checked="checked" id="male" value="male">
+                    <label for="">남자</label>
+                    <input type="radio" name="gender" id="feamle" value="female">
+                    <label for="female">여자</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="" class="title">취미</label></td>
+                <td>
+                    <input type="checkbox" id ="hobby1" name="hobby" value="축구">
+                    <label for="hobby1">축구</label>
+                    <input type="checkbox" id ="hobby2" name="hobby" value="농구">
+                    <label for="hobby2">농구</label>
+                    <input type="checkbox" id ="hobby3" name="hobby" value="스키">
+                    <label for="hobby3">스키</label>
+                    <input type="checkbox" id ="hobby4" name="hobby" value="달리기">
+                    <label for="hobby4">달리기</label>
+                </td>
+                <tr>
+                    <td colspan="2"> 
+                        <input type="submit" value="가입하기">
+                        <button type="submit">가입하기2</button>
+                        <input type="reset" value="다시쓰기"> 
+                        <button type="reset">다시쓰기2</button>
+                    </td>
+                </tr>
+
+            </tr>
+        </table>
+</form>
+</div>
+</body>
+</html>

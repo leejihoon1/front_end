@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day2_Table(표)</title>
+    <style>
+        th,td{ /* 셀렉터로 여러개의 태그를 지정 */
+            padding:10px;
+            border :1px solid black;
+            border-collapse: collapse;
+        }
+        /* 문제 : 회원이름에 글꼴 색상을 brown 으로 합니다(class속성 활용)*/
+        td.name{
+            color: brown;
+            font-weight: bold;
+        }
+        tr:nth-child(even) { /* 선택자 6) tr태그들 중에 짝수 번째에 적용*/
+             background-color: #D6EEEE;
+        }
+        td.고객등급{
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 표의 배경색을 없애고 테두리를 적용하는 것으로 바꾸기    -->
+    <h3>회원 목록 조회</h3>
+    <table style="width:80%;margin:auto;">
+        <caption>&lt;2022년 3월1일 기준&gt;</caption>
+        <tr> 
+            <!--첫번쨰 행 : 제목행(자동으로 가운데 정렬)-->
+            <th style="width:10%">회원번호</th>    <!--4개의 칸(열) -->
+            <th style="width:10%;">이름</th>
+            <th style="width:20%;">연락처</th>
+            <th style="width:20%;">주소</th>
+            <th style="width:20%;">가입일자</th>
+            <th style="width:10%;">고객등급</th>
+            <th style="width:10%;">거주지역</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td class="name">홍길동</td>
+            <td>010-1111-2222</td>
+            <td>서울시 강남구 역삼동</td>
+            <td>2015-12-02</td>
+            <td class="고객등급">VIP</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="name">김모모</td>
+            <td>010-3333-4444</td>
+            <td>서울시 종로구 관철동</td>
+            <td>2015-12-06</td>
+            <td>일반</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="name">최나나</td>
+            <td>010-5555-7777</td>
+            <td>경기도 성남시 분당구</td>
+            <td>2015-10-01</td>
+            <td>일반</td>
+            <td>30</td>
+        </tr>
+
+    </table>
+
+
+</body>
+</html>

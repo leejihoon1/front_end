@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action=""> <!-- 3)입력요소들이 서버로 전달되기 위해 꼭 필요한 태그입니다.
+                            반드시, 입력요소들은 form 태그안에 작성합니다.
+                           4) 입력요소들의 값들을 구분하는 식별자는 name 속성으로 설정합니다.
+                            action 속성값은 서버의 url(대체로 파일명)-->
+    <table>
+        <tr>
+            <!-- for 속성은 연결될 입력 요소의 id속성 값으로 합니다. -->
+            <td><label for="name">이름</label></td>
+            <!-- id속성값은 태그요소를 식별하고 label 태그와 함께 동작합니다.
+                label 태그 클릭하면 연결된 입력요소에 포커스가 설정됩니다.-->
+            <td><input type="text" id="name" name="name"></td>
+
+        </tr>
+        <tr>
+            <td><label for="password">패스워드</label></td>
+            <td><input type="password" id="password" name="password"></td>
+
+        </tr>
+        <tr>
+            <td><label for="email">이메일</label></td>
+            <td><input type="email" id="email" name="email"></td>
+
+        </tr>
+        <tr>
+            <td><label for="age">나이</label></td>
+            <td><input type="number" value="30" min="20" max="40" id="age" name="age"></td>
+
+        </tr>
+        <!-- 7) 위에 4개는 사용자가 입력한 값이 value 속성이 됩니다. -->
+        <tr>
+            <td><label for="addr">주소</label></td>
+            <td>
+                <!--value 속성값이 서버로 전달됩니다.  -->
+                <select name="addr" id="addr">
+                    <option value="서울">서울</option>
+                    <option value="인천">인천</option>
+                    <option value="대전" selected="selected">대전</option> <!--초기 선택 설정-->
+                    <option value="광주">광주</option>
+                    <option value="부산">부산</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <!-- 2) name 속성값을 같게 주면 여러개 라디오 버튼 중에 하나만 선택됩니다. -->
+                <!-- checked="checked" : 초기 선택 (checked만 써도 됩니다.) -->
+                <input type="radio" name="gender" checked="checked" id="male" value="male">
+                <label for="">남자</label>
+                <input type="radio" name="gender" id="feamle" value="female">
+                <label for="female">여자</label>
+            </td>
+        </tr>
+        <tr>
+            <td>취미</td>
+            <td>
+                <!-- checkbox는 다중선택이 가능하고 서버에서는 배열로 처리할 수 있습니다.
+                        name 속성 값이 같도록 합니다. -->
+                <input type="checkbox" id ="hobby1" name="hobby" value="축구">
+                <label for="hobby1">축구</label>
+                <input type="checkbox" id ="hobby2" name="hobby" value="농구">
+                <label for="hobby2">농구</label>
+                <input type="checkbox" id ="hobby3" name="hobby" value="스키">
+                <label for="hobby3">스키</label>
+                <input type="checkbox" id ="hobby4" name="hobby" value="달리기">
+                <label for="hobby4">달리기</label>
+            </td>
+            <tr>
+                <td colspan="2"> <!--위의 행은 모두 2칸 -> 여기서는 합치기--> 
+                    <!-- 6) submit : form의 입력요소 값들을 서버에 전송합니다(제출) -->
+                    <input type="submit" value="가입하기">
+                    <button type="submit">가입하기2</button>
+                    <input type="reset" value="다시쓰기"> <!--입력요소의 내용이 초기화 됩니다.-->
+                    <button type="reset">다시쓰기2</button>
+                </td>
+            </tr>
+
+        </tr>
+
+        <!-- 실행하고 submit 한 후에 url을 확인하세요. 
+        http://127.0.0.1:5500/day03/1_form.html?name=%EC%9D%B4%EC%A7%80%ED%9B%88&password=
+        1324&email=aodlfdndb625%40naver.com&age=35&addr=&gender=on&hobby=on&hobby=on
+            ? 뒤는 query string이라고 합니다. query string은 key- value 형식이고 &로 구분합니다.
+            key는 파라미터이룸, value는 파라미터 값
+            * select, radio, checkbox 입력요소에 value 속성값 설정하고 다시 url 확인하세요.
+            http://127.0.0.1:5500/day03/1_form.html?name=%EC%9D%B4%EC%A7%80%ED%9B%88&password=
+            4352&email=aodlfdndb625%40naver.com&age=35&addr=%EC%84%9C%EC%9A%B8&gender=male&hobby=
+            %EC%B6%95%EA%B5%AC&hobby=%EB%86%8D%EA%B5%AC
+    -->
+        
+    </table>
+</form>
+</body>
+</html>
