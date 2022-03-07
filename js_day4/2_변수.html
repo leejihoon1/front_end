@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 자바스크립트의 변수 선언 : var
+        1.데이터 타입 지정 안합니다.
+        2. 같은 변수 이름을 중복해서 선언해도 오류발생 ㅇ나합니다.
+        3.{ } 블록 지역변수 적용이 안됩니다.
+        4. 변수를 선언하지 않고도 사용해도 오류 발생 안합니다.
+        위의 해결방법으로 ES6(규격화된 자바스크립트버전)에서 let, const(상수)키워드로 선언합니다.
+        */
+        var v1 = 123; document.write(v1); 
+        document.write('<br>');   // 태그도 적용되어 출력합니다.
+        var v1 = 999; document.write(v1);  // 일반적은 프로그래밍 언어는 오류...그러나 결과는...
+        if(10>5){
+            var v1 = 444;  // 일반적인 프로그래밍 언어는 if블럭의 지역변수...
+                         // 자바스크립트는 var은 전역변수 취급(함수제외)
+        }
+        document.write('<br>' + v1);
+        temp='하하하';
+        document.write('<br>' + temp); // 선언하지 않은 변수 사용해도 오류발생 안함.
+    </script>
+</body>
+</html>

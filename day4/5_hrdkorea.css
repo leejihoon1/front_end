@@ -37,7 +37,7 @@ body {
     margin-top: 0;
     margin-left: -10px;
 }
-td{
+td,th{
     border: 1px dotted gray;
 }
 td.col1_title{
@@ -67,7 +67,6 @@ header{
     left:0;
     top:0; 
     margin-top: -20px;
-    width: 100%;
     z-index: 10;
     margin-left: -10px;
 }
@@ -79,6 +78,7 @@ section {
      background-color: cadetblue;
      color: white;
      padding: 20px;
+     margin-left: -10px;
  }
 
 a{
@@ -89,6 +89,7 @@ a{
 .container > li:hover {
     background-color: coral;
     border-radius: 4px;
+    margin-left: -10px;
 }
 
 @media screen and (max-width:768px) {
