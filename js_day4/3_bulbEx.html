@@ -7,11 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>자바스크립트 활용 : HTML태그의 속성값 변경</h3>
-    <p>img 태그 src 속성값을 변경하여 문서에 표시되는 이미지를 바꿉니다. 참고 : innerHtml은 요소의 태그사이 컨텐츠
-        를 변경합니다.
+    <h3>자바스크립트 기본 활용 </h3>
+    <p>
+        <ul>
+            <li>태그의 컨텐츠 변경 : innerHTML</li>
+            <li>태그의 속성값 변경 : 예를들면 img태그의 src속성값 변경하기</li>
+            <li>태그의 스타일 변경 : 예를들면 글꼴의 색상 변경하기</li>
+
+        </ul>
+        (img 태그 src 속성값을 변경하여 문서에 표시되는 이미지를 바꿉니다. 참고 : innerHtml은 요소의 태그사이 컨텐츠
+        를 변경합니다.)
     </p>
-    <h4>현재상태 : <span id="onoff">OFF</span></h4>
+    <h4>현재상태 : <span id="onoff" style=color:blue;>OFF</span></h4>
     <hr>
     <button onclick="bulbOn()">불을 켜주세요</button>
     <img src="../images/pic_bulboff.gif" alt="light"
@@ -24,23 +31,25 @@
         let state = false; // 불이 꺼져있을 떄는 false, 켜져있으면 true
         function bulbToggle() {
         // 현재 그림상태에 따라 번갈아가며 바꿔줍니다. bulbOn(), bulbOff() 활용
-         if (state == true) {
-            bulbOff();
-         } else {
-             bulbOn();
+            if (state) {  //state=true , 불이 켜진상태
+                bulbOff();
+                state=false; // 불꺼짐 상태로 변경
+            } else { // 불이 꺼진상태!
+                bulbOn();
+                state=true;
+                }
             }
-        }
         function bulbOn(){
             //document.getElementById('picBulb').src="../images/pic_bulbon.gif";
             img.src="../images/pic_bulbon.gif";
-            state = true;
             state_label.innerHTML="ON";
+            state_label.style.color='green'
         }
         function bulbOff(){
             //document.getElementById('picBulb').src="../images/pic_bulboff.gif";
             img.src="../images/pic_bulboff.gif";
-            state = false;
             state_label.innerHTML="OFF";
+            state_label.style.color='blue'
         }
     </script>
 </body>
