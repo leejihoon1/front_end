@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        table{
-            width:80%;
+        table {
+            width: 80%;
         }
-        td{
-            border:1px solid tomato;
+        td {
+            border: 1px solid tomato;
             padding: 7px 12px;
             text-align: center;
         }
-        th{
+        th {
             background-color: tomato;
             color: white;
-            padding:7px 12px;
+            padding: 7px 12px;
         }
     </style>
 </head>
@@ -27,13 +27,11 @@
             <th>TIME</th>
             <th>TODO</th>
         </tr>
-        <Tbody id="contents">
+        <tbody id="contents">
 
-        </Tbody>
-
+        </tbody>
     </table>
-    <button onclick="add_schedule()">일정 추가하기</button> 
-    <!-- 함수사용1) 이벤트와 관련된 동작을 함수로.-->
+    <button onclick="add_schedule()">일정추가하기</button>  <!-- 함수사용1) 이벤트와 관련된 동작을 함수로. -->
     <script>
         //객체의 배열
         const schedule = [{time:'09:00',todo:'수업'},
@@ -41,47 +39,48 @@
                           {time:'12:30',todo:'점심식사'},
                           {time:'14:00',todo:'주간회의'},
                           {time:'16:45',todo:'자료조사'}]
-
-        /*
-        let _schedule = ``;  // 전역변수
-        schedule.forEach(function(value){ // value의 타입이 object -> 프로퍼티 time, todo
-                //${value.time},${value.todo}를 출력
-            _schedule += `<tr><td>${value.time}</td><td>${value.todo}</td></tr>`
-        });
-        document.getElementById('contents').innerHTML= _schedule;
+        
+        /*                  
+        let _schedule='';       //전역변수
+        schedule.forEach(function(value){  //value 의 타입이 object -> 프로퍼티 time,todo
+                // ${vaule.time}, ${value.todo}를 출력
+                _schedule+= `<tr><td>${value.time}</td><td>${value.todo}</td></tr>`
+        })
+        document.getElementById('contents').innerHTML = _schedule;
         */
+        set_tbody();        //함수 호출: 함수정의가 뒤에 있어도 호출에 오류가 없습니다.
+                    //    ㄴ var, function 은 자바스크립트가 선언부분을 맨 앞으로 올려요.(hoisting)
 
-        set_tbody();   // 함수 호출 : 함수정의가 뒤에 있어도 호출에 오류가 없습니다.
-                       //   ㄴ : var, function은 자바스크립트가 선언부분을 맨 앞으로 올려요.(hoisting)
-
-        //함수사용 2) 반복해서 사용된 코드(명령들.)를 함수로 정의하여 재사용한다.(함수 호출)
-        function set_tbody(){ // 함수 이름은 식별자(프로그래머가 알아서 이해할 수 있는 단어로 만듭니다.)
-            let _schedule = ``;     // 함수의 지역변수 
-            schedule.forEach(function(value){ 
-                _schedule += `<tr><td>${value.time}</td><td>${value.todo}</td></tr>`
-            });
-            document.getElementById('contents').innerHTML= _schedule;
+        //함수사용2) 반복해서 사용된 코드(명령들.)를 함수로 정의하여 재사용한다.(함수 호출)
+        function set_tbody(){       //함수이름은 식별자(프로그래머가 이해할수 있는 단어로 만듭니다.)
+            let _schedule='';       //전역변수
+            schedule.forEach(function(value){  //value 의 타입이 object -> 프로퍼티 time,todo
+                // ${vaule.time}, ${value.todo}를 출력
+                _schedule+= `<tr><td>${value.time}</td><td>${value.todo}</td></tr>`
+            })
+            document.getElementById('contents').innerHTML = _schedule;
         }
 
         function add_schedule(){
             //prompt 이용해서 시간과 할일을 각각 입력받기
             let atime=prompt('시간을 입력하세요.')
-            let atodo=prompt('할 일을 입력하세요.')
-            // 입력받은 내용으로 schedule 배열에 추가하기
-            schedule.push({time:atime,todo:atodo}) // 배열에 새로운 객체 항목을 추가합니다
-            //tboby안에 원래 내용을 바꿉니다. 새로운 항목이 추가된 배열로 tr 태그를 넣어줍니다.
+            let atodo=prompt('할일을 입력하세요')
+            //입력받은 내용으로 scheule배열에 추가하기
+            schedule.push({time:atime,todo:atodo})      //배열에 새로운 객체 항목을 추가
+            //tbody 안에 원래 내용을 바꿉니다. 새로운 항목이 추가된 배열로 tr태그를 넣어줍니다.
 
             /*
-            let _schedule = ``;     // 함수의 지역변수 
-            schedule.forEach(function(value){ 
-                _schedule += `<tr><td>${value.time}</td><td>${value.todo}</td></tr>`
-            });
-            document.getElementById('contents').innerHTML= _schedule;
+            let _schedule='';       //함수의 지역변수
+            schedule.forEach(function(value){  //value 의 타입이 object -> 프로퍼티 time,todo
+                // ${vaule.time}, ${value.todo}를 출력
+                _schedule+= `<tr><td>${value.time}</td><td>${value.todo}</td></tr>`
+            })
+            document.getElementById('contents').innerHTML = _schedule;
             */
-            }
-            set_tbody();    // 함수 호출 :  함수안에서 또 다른 함수 호출 할 수 있습니다.
+           set_tbody();         //함수 호출 : 함수안에서 또 다른 함수 호출할 수 있습니다.
 
+        }
+        //내일까지 해보시고 메일로 보내주세요. 
     </script>
-    
 </body>
 </html>
