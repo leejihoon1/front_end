@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day4_쇼핑몰 회원관리_등록</title>
+    <link rel="stylesheet" href="6_hrdkorea.css">
+</head>
+<body>
+    <header>
+        <h3 class="header-item">쇼핑몰 회원관리 ver1.0</h3>
+    </header>
+    <nav>
+        <ul class="container">
+            <li><a href="2_memberReg.html">회원등록</a></li>
+            <li><a href="3_memberList.html">회원목록조회/수정</a></li>
+            <li><a href="4_sales.html">회원매출조회</a></li>
+            <li><a href="1_home.html">홈으로</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h4 style="text-align: center;">홈쇼핑 회원 등록</h4>
+        <form action="">  
+        <!-- action 설정된 url 로 입력요소에 작성된 데이터를 서버로 전송. 
+            form 태그 속성 method="post" 있을때 와 없을 때 차이점이 있습니다.-> 백엔드 배우고 확인.
+        -->
+            <table style="width:70%;margin:auto;">
+                <tr>
+                    <td class="col1_title">회원번호(자동발생)</td>
+                    <td><input type="text" name="num"></td>  <!-- 입력요소 데이터 식별하는 속성은 name -->
+                </tr>
+                <tr>
+                    <td class="col1_title">회원성명</td>
+                    <td><input type="text" name="name"></td>
+                    <!-- required="required" 는 지우고 함수에서 처리합니다. -->
+                </tr>  
+                <tr>
+                    <td class="col1_title">회원전화</td>
+                    <td><input type="text" name="tel" size="30"></td>
+                </tr> 
+                <tr>
+                    <td class="col1_title">회원주소</td>
+                    <td><input type="text" name="addr" size="40"></td>
+                </tr>  
+                <tr>
+                    <td class="col1_title">가입일자</td>
+                    <td><input type="text" name="reg_date" onclick="t()"></td>
+                </tr>  
+                <tr>
+                    <td class="col1_title">고객등급[A:VIP,B:일반,C:직원]</td>
+                    <td><input type="text" name="grade"></td>
+                </tr>  
+                <tr>
+                    <td class="col1_title">도시코드</td>
+                    <td><input type="text" name="city_code"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="button" onclick="valid_check()">등록</button>
+                        <button onclick="location.href='3_memberList.html'">조회</button>
+                        <!-- button로 링크 또는 기능 설정하기
+                        onclick 이벤트와 자바스크립트 명령을 이용합니다.
+                        locatio.href 는 a태그의 href속성설정과 같은 내용입니다.
+                        -->
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <footer>
+        HRDKOREA Copyright&copy;2022 All rights reserved. Human Resources Development Service of Korea.
+    </footer>
+    <script>
+        //여기에 작성되는 코드는 브라우저에 문서가 렌더링될때 바로 적용됩니다.
+        //오늘 날짜가 자동으로 가입일자에 출력되기 : 형식은 yyyy-MM-dd-> 구글폴더에 올려주세요
+        const reg = document.forms[0].reg_date;
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (today.getMonth()+1).toString().padStart(2,0);
+        const day = today.getDate().toString().padStart(2,0);
+        reg.value=[year,month,day].join('');
+
+        function valid_check() {
+            const frm = document.forms[0]
+            const namef = frm.name
+            const telf = frm.tel
+            const addrf = frm.addr
+            const gradef = frm.grade.value
+            const grades = ['A','B','C','D']
+            const cityf = frm.city_code.value;      //도시코드값 - 조건:숫자로만 2자리
+            const temp = parseInt(cityf);   
+            //*cityf 에 시작문자가 숫자가 아니면 정수변환이 안되고 결과값이 NaN 가됩니다.*
+            console.log(cityf +':'+ temp)   //테스트용입니다.
+            //*cityf 에 시작문자가 숫자가 아니면 정수변환이 안되고 결과값이 NaN 가 됩니다.*
+            //console.log(cityf +':'+ temp)   //테스트용입니다.
+            //console.log(`테스트 : ${cityf.split('')} (${typeof cityf})}`)
+            let isValid=true;
+            if(namef.value == ""){
+              alert('이름을 입력해주세요')
+              namef.focus()
+              isValid=false
+            }
+            else if(telf.value == ""){
+              alert('전화번호를 입력해주세요')
+              telf.focus()
+              isValid=false
+            }
+            else if(addrf.value == ""){
+              alert('주소를 입력해주세요')
+              addrf.focus()
+              isValid=false
+            }else 
+            /*
+            if(!(gradef =="A"||gradef =="B"||gradef =="C")) {
+                    alert('A,B,C중 하나만 입력해주십시오');
+                    isValid= false;
+            }
+            */  //검사할 값이 많아질 때 배열을 이용해 봅시다.
+            if (grades.indexOf(gradef)==-1){
+                //console.log(grades.indexOf(gradef))
+                alert('A,B,C,D 중 하나만 입력해주십시오');    //테스트를 위해 D도 추가합니다.
+                isValid= false;
+            } else 
+            /*
+            if(isNaN(temp) || temp<10 || temp > 99 || cityf.length !=2){  
+                //NaN : Not a Number , 자바스크립트의 데이터값 중 하나입니다.실행결과로만 도출되는 데이터
+                //isNaN은 temp 변수값이 NaN인지 검사합니다. 
+                alert('2자리 숫자로만 입력해야 합니다.')
+                isValid=false
+            }
+            } */ //이 코드 대체할 forEach
+            if(cityf.length!=2) {
+                alert('도시코드는 2자리 숫자입니다.')
+                isValid=false
+            }else{      //코드의 자릿수가 커서 검사할 요소가 많을 때 
+                let cnt=0;
+                cityf.split('').forEach(function(value){
+                    //cityf 문자열 데이터를 배열로 변환하고 각 요소값으로 이 함수를 실행합니다.
+                    //이 때 문자는 처리 조건에 따라 '0'~'9' 사이어야합니다.
+                    if(!(value>='0' && value <='9')){
+                        isValid=false;
+                        cnt++;
+                    }
+                })
+                if(cnt>0)
+                    alert('도시코드는 숫자만 입력하세요.')
+            }    
+
+
+            if(isValid){
+                alert('유효성 검사 통과!')  //완성되면 주석처리
+            }else
+                alert('유효성 검사 실패')   //완성되면 주석처리
+        }
+    </script>
+</body>
+</html>

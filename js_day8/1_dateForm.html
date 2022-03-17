@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 처리조건 : 1)숙박일수와 입실날짜를 선택하면 퇴실날짜가 자동으로 설정/출력
+                   2)입실날짜와 퇴실날짜를 선택하면 숙박일수가 계산됩니다.
+                   3)입실날짜는 퇴실날짜 보다 이전 날짜이어야 합니다.
+    -->
+    <!-- form 태그내의 입력요소값을 식별자가 name속성입니다. 
+         id속성값으로 특정 태그요소를 구별하기 위한 값입니다.-->
+    <form action="">
+        숙박일수 : 
+        <select name="days" onchange="daySelect()"><!-- change이벤트 :요소값이 변경될때 발생 -->
+            <option value="0">선택</option>
+            <option value="1">1박</option>
+            <option value="2">2박</option>
+            <option value="3">3박</option>
+            <option value="4">4박</option>
+        </select><br>
+        입실날짜 : <input type="date" name="time1" onchange="endOutput()"><br>
+        <!-- 2) 퇴실날짜 선택하면 숙박일수 계산하고 화면에 출력 -->
+        퇴실날짜 : <input type="date" name="time2" onchange="checkDays()">
+        <span id="printDays"></span>  <!-- 숙박일수 계산값을 표시할 예정. -->
+        <br><br>
+        <button>제출</button>  <!-- type값은 기본이 submit-->
+        <button type="button">확인</button>
+    </form>
+    <script>
+        //전역변수 선언
+        const days = document.forms[0].days;        //select 요소
+        const start = document.forms[0].time1;
+        const end = document.forms[0].time2;
+        function daySelect(){       //select 태그 change 이벤트에 대한 실행함수.변경전에 실행됩니다.
+            alert(days.value);
+            alert([start.value,end.value].join(' ~ '))
+            if(start.value==''){
+                alert('입실날짜를 선택하세요.')
+                start.focus();
+            }else {
+                //1)숙박일과 입실날짜를 이용하여 퇴실날짜 계산하고 화면에 출력
+                endOutput()
+            }    
+        }
+        function endOutput() {
+            let temp = new Date(start.value)    //선택한 입실날짜 문자열로 Date 타입 객체생성
+            temp.setDate(temp.getDate()+parseInt(days.value))   //입실날짜 + 숙박일수
+            alert(temp)
+            //퇴실날짜를 계산된 temp로 보이게 하기 yyyy-MM-dd 형식 날짜를 end.value값으로 설정하기
+            const year = temp.getFullYear();
+            const month = (temp.getMonth()+1).toString().padStart(2,0);
+            const date_=temp.getDate().toString().padStart(2,0);
+            end.value = [year,month,date_].join('-');
+        }
+
+        function checkDays(){
+            if(start.value==''){
+                alert('입실날짜를 선택하세요.')
+                start.focus()
+            }else if(end.value <= start.value){  //3)입실날짜와 퇴실날짜 비교
+                alert('퇴실날짜는 입실날짜 이후로 하세요.')
+                end.focus()
+            }else{
+                //숙박일수 계산하기 : 퇴실날짜 - 입실날짜
+                const temp = new Date(end.value)-new Date(start.value)
+                //alert('temp:' +temp)
+                //id=printDays에 계산된 숙박기간 출력 : '숙박기간 ?박 입니다.'(글꼴 색상 빨강색으로 표시)
+                const oneday_timestamp = 1*24*60*60*1000; 
+                document.getElementById('printDays').innerHTML=`숙박기간 ${temp/oneday_timestamp}박 입니다.` 
+                document.getElementById('printDays').style.color='red'
+
+                let diff=temp/oneday_timestamp;
+                if(diff<5)  days.value=diff;        //select 요소와 동기화
+                else days.value=0;                  //select 요소에 해당하는 값 없으므로 '선택'표시
+
+            }    
+        }
+
+    </script>
+</body>
+</html>

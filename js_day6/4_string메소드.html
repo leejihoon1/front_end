@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript Strings</h2>
+
+<p>Strings are written inside quotes. You can use single or double quotes:</p>
+
+<p id="demo"></p>
+
+<script>
+/*
+ String 주요 메소드
+
+ slice(start,end) : start,end 인덱스가 음수가 될 수 있음. 이때는 맨끝부터-1
+ substring(start,end) : end 인덱스 문자는 포함안함
+ substr(start,length) : 두번째 인자가 추출할 길이
+ replace(scr, dest) : scr문장을 dest로 대체함.
+ toUppperCase() 
+ toLowerCase()
+ concat(join,str2) : str2문자열과 연결함. join문자열은 연결할 때 사용할 문자열
+ padStart() : 예제참고
+ padEnd() : 예제참고
+ cahtAt(index) : index위치와 문자 구하기.
+        -자바스크립트에서는 문자열을 배열처럼 다룰 수 있음. []안에 인덱스 지정가능.
+split() : 배열로 바꿔주는 메소드
+
+ split() : 문자열 나뉘(구분기호 사용)
+
+ 문자열 검색 메소드 : 사용식은 자바와 동일.
+ String indexof()
+ String lastIndexof()
+ String startsWith()
+ String endsWith()
+*/
+
+let carName1 = "Volvo XC60"; // Double quotes
+let carName2 = 'Volvo XC60'; // Single quotes
+
+document.getElementById("demo").innerHTML =
+carName1 + " 연결해줌 " + carName2; 
+
+let answer1 = "It's alright";
+let answer2 = "He is called 'Johnny'";
+let answer3 = 'He is called "Johnny"'; 
+
+document.getElementById("demo").innerHTML =
+answer1 + "<br>" + answer2 + "<br>" + answer3; 
+
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.getElementById("demo").innerHTML = text.length; //텍스트의 길이를 반환함
+
+let text2 = "We are the so-called \"Vikings\" from the north.";
+document.getElementById("demo").innerHTML = text2; 
+ // " " 문자는  \" 로 표기,  ' '문자는  \'로 표기,  \ 문자는 \\ 로 표기
+
+document.getElementById("demo").innerHTML =
+//코드 줄을 끊는 가장 좋은 위치는 연산자나 쉼표 뒤입니다.
+
+document.getElementById("demo").innerHTML = "Hello " +
+"Dolly!";
+//문자열에서 코드 줄을 끊는 가장 안전한 방법은 문자열 추가를 사용하는 것입니다.
+
+// x 문자열
+let x = "John";
+// y 객체
+let y = new String("John");
+document.getElementById("demo").innerHTML =
+typeof x + "<br>" + typeof y;
+"Hello Dolly!";
+
+
+</script>
+
+
+</body>
+</html>

@@ -14,7 +14,7 @@ let person = {name:'sana',
               }
             };  //객체 리터럴을 이용하여 객체 생성
 
-person.sayHi(); //객체의 메소드 실행
+person.sayHi(); //객체의 메소드 실행, this는 person변수가 참조하는 객체.
 
 //프로퍼티 접근하여 person 객체의 이름변경
 person.name='사나'; // 방법1
