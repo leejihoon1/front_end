@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day9_도서 대여 관리_정보처리산업기사 실기</title>
-<link rel="stylesheet" href="5_hrdkorea.css">
+<link rel="stylesheet" href="0_hrdkorea.css">
 </head>
 <body>
     <header>
@@ -26,16 +26,49 @@
     <main>
         <section style="padding-bottom: 2000px;">
             <h4 style="text-align: center;">쇼핑몰 회원관리 프로그램</h4>
-            <p>쇼핑몰 회원정보와 회원매출정보 데이터베이스를 구축하고 회원관리 프로그램을 작성합니다.<br>
-            프로그램 작성순서
-            <ol>
-                <li>회원정보 테이블을 생성한다.</li>
-                <li>매출정보 테이블을 생성한다.</li>
-                <li>회원정보,매출정보 테이블에 제시된 문제지의 참조데이터를 추가생성한다.</li>
-                <li>회원정보 입력화면 프로그램을 작성한다.</li>
-                <li>회원정보 조회 프로그램을 작성한다.</li>
-                <li>회원 매출 정보 조회 프로그램을 작성한다.</li>
-            </ol>
+                <form action="">
+                    대여번호 : <input type="text" name="r_name"><br>
+                    회원번호 : <input type="text" name="mem_no"><br>
+                    도서코드 : <input type="text" name="book_bo"><br>
+                    대여일자 : <input type="date" name="r_date" onchange="rent()"><br>
+                    반납예정일자 : <input type="date" name="c_date" onchange="come()"><br>
+                    <button type="button">대여</button>
+                    <span id="days"></span>
+                </form>
+                <script>
+                    const start = document.forms[0].r_date;
+                    const end = document.forms[0].c_date;
+                    const oneday_timestamp = 1*24*60*60*1000; 
+
+                    function rent(){
+                        let temp = new Date(start.value)    
+                        temp.setDate(temp.getDate()+parseInt(days.value))   
+
+                        const year = temp.getFullYear();
+                        const month = (temp.getMonth()+1).toString().padStart(2,0);
+                        const date_=temp.getDate().toString().padStart(2,0);
+                        end.value = [year,month,date_].join('-');
+                    }
+
+                    function come(){
+                        const oneday_timestamp = 1*24*60*60*1000; 
+                        if(start.value==''){
+                            alert('입실날짜를 선택하세요.')
+                            start.focus()
+                        }else if(end.value <= start.value){  //3)입실날짜와 퇴실날짜 비교
+                            alert('퇴실날짜는 입실날짜 이후로 하세요.')
+                            end.focus()
+                        }else{
+                        const temp = new Date(end.value)-new Date(start.value)
+                        const oneday_timestamp = 1*24*60*60*1000; 
+                        document.getElementById('days').innerHTML=`대여기간 ${temp/oneday_timestamp}박 입니다.` 
+                        document.getElementById('days').style.color='red'
+
+                        let diff=temp/oneday_timestamp;
+                        
+                    }
+                }
+                </script>
             </p>
         </section>
         <footer>
